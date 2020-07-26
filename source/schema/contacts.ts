@@ -11,7 +11,7 @@ const contactsSchemaOpts = {
             required : true
       },
       people_id : {
-            type: [SchemaTypes.ObjectId],
+            type: SchemaTypes.ObjectId,
 		ref: ModelNames.People,
 		required: true
       }

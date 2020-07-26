@@ -12,7 +12,7 @@ export const createPeople = async (request : Request, response : Response) => {
 
       const { name, age, height } = request.body;
       const missingKeys = !name || !age || !height
-      const invalidParams = isNaN(age) || isNaN(height) || (name.trim.length) == 0
+      const invalidParams = isNaN(age) || isNaN(height) || (name.trim().length) == 0
 
       if (missingKeys) {
             var errorMsg = `Keys Missing in Request`;

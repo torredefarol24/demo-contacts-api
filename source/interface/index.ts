@@ -3,3 +3,9 @@ export interface IPeople {
       age : Number
       height : Number
 }
+
+export interface IContact {
+      email : String,
+      number : String,
+      people_id? : String
+}

@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { currentTS } from '../../constants';
+import { currentTS, collectionNames } from '../../constants';
 import { People } from '../../models/People';
 
 export const getAllPeople = async (request : Request, response : Response) => {
@@ -10,7 +10,17 @@ export const getAllPeople = async (request : Request, response : Response) => {
       }
       
       try {
-            const people = await People.find();
+            const aggregateOpts = [
+                  {
+				$lookup: {
+					from: collectionNames.contacts,
+					localField: '_id',
+					foreignField: 'people_id',
+					as: 'contact'
+				}
+			}
+            ]
+            const people = await People.aggregate(aggregateOpts);
             context.success = true;
             context.data = people;
             return response.status(200).json(context);
