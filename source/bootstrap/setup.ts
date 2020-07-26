@@ -1,5 +1,6 @@
 import * as bodyParser from 'body-parser';
 import { ENV_SETUP } from './env_vars';
+import { DBConnection } from './db';
 
 const bodyParserInit = (app:any) => {
       app.use(bodyParser.json());
@@ -19,6 +20,7 @@ const startHttpServer = (app:any) => {
 
 
 export const bootstrapApp = (app:any) => {
+      const mongoConn = new DBConnection().connectToDB();
       bodyParserInit(app);
       startHttpServer(app);
 }
