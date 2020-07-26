@@ -1,1 +1,3 @@
-console.log("Test")
+import {DemoContactsAPI} from './main/app';
+
+const backendAPI = new DemoContactsAPI()
