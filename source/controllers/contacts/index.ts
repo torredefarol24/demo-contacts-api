@@ -1,4 +1,7 @@
+import { createContact } from './create';
+import { searchContact } from './search';
+
 export const ContactsController = {
-      search : "",
-      create : ""
+      search : searchContact,
+      create : createContact
 }

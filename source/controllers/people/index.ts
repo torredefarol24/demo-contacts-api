@@ -1,4 +1,7 @@
+import { getAllPeople } from './get_all';
+import { createPeople } from './create';
+
 export const PeopleController = {
-      getAll : "",
-      create : ""
+      getAll : getAllPeople,
+      create : createPeople
 }
