@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { currentTS, collectionNames } from '../../constants';
 import { People } from '../../models/People';
+import { Contacts } from '../../models/Contacts';
 
 export const getAllPeople = async (request : Request, response : Response) => {
       var context: any = {
