@@ -14,15 +14,14 @@ export const createContact = async (request : Request, response : Response) => {
       const { id } = request.params;
       
       const missingKeys = !email || !number ||!id
-      const invalidParams = (email.trim().length) == 0 || (number.trim().length) == 0
-
       if (missingKeys) {
             var errorMsg = `Keys Missing in Request`;
             context.message = errorMsg
 		console.error(`\n----${currentTS}---- Contact::createContact Error: ${errorMsg}`)
 		return response.status(400).json(context)
       }
-
+      
+      const invalidParams = (email.trim().length) == 0 || (number.trim().length) == 0
       if (invalidParams) {
             var errorMsg = `Invalid Data`;
             context.message = errorMsg
